@@ -12,8 +12,8 @@ import 'dart:typed_data' show Uint8List;
 import 'package:hex/hex.dart';
 import 'package:image/image.dart';
 // import 'package:gbk_codec/gbk_codec.dart';
-import 'package:esc_pos_utils/src/text_with_type.dart';
-import 'package:esc_pos_utils/esc_pos_utils.dart';
+import 'package:esc_pos_utils_fork/src/text_with_type.dart';
+import 'package:esc_pos_utils_fork/esc_pos_utils.dart';
 import 'enums.dart';
 import 'commands.dart';
 
