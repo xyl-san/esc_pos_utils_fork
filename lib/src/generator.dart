@@ -12,7 +12,6 @@ import 'package:hex/hex.dart';
 import 'package:image/image.dart';
 import 'package:gbk_codec/gbk_codec.dart';
 import 'package:esc_pos_utils_fork/esc_pos_utils.dart';
-import 'enums.dart';
 import 'commands.dart';
 
 class Generator {
@@ -376,6 +375,31 @@ class Generator {
     if (n > 0) {
       bytes += List.filled(n, '\n').join().codeUnits;
     }
+    return bytes;
+  }
+
+  List<int> executeTestPrint(int n, int m) {
+    // Ensure values are within valid ranges
+    if (!(n >= 0 && n <= 2 || n >= 48 && n <= 50)) {
+      // Corrected condition for n
+      throw ArgumentError("Invalid value for n: $n");
+    }
+    if (!(m >= 1 && m <= 3 || m >= 49 && m <= 51)) {
+      // Corrected condition for m
+      throw ArgumentError("Invalid value for m: $m");
+    }
+
+    // Create the command bytes directly
+    final bytes = Uint8List.fromList(<int>[
+      0x1D, // GS
+      0x28, // (
+      0x41, // A
+      0x02, // pL
+      0x00, // pH
+      n, // n
+      m, // m
+    ]);
+
     return bytes;
   }
 
